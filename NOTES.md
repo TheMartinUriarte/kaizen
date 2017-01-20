@@ -45,4 +45,19 @@ At 100% zoom level on your team/new view your form is cut off.
 - Also, there is a 500 limit to salary? That's not cool.
 
 
-##Under the hood
+- Your views have a LOT of repitition of your sidebar:
+
+```html
+  <div id="wrapper">
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+              <li class="sidebar-brand"> </li>
+              <li><strong><%= link_to "Dashboard", profile_path %></strong></li>
+              <li><strong><%= link_to "Staff", devs_path %></strong></li>
+              <li><strong><%= link_to "Skills", skills_path %></strong></li>
+          </ul>
+      </div>
+  </div>
+```
+
+Put this into a partial and call it where needed. Bam. Just cut each doc's line count by 10.

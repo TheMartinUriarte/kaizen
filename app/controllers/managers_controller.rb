@@ -12,13 +12,18 @@ class ManagersController < ApplicationController
       session[:manager_id] = manager.id
       redirect_to '/profile'
     else
+      #TODO: include an error flash message if someone is unable to properly create a manager
       redirect_to '/signup'
     end
   end
 
   def profile
     @manager = current_manager
-    @projects = Project.where({manager_id: current_manager}).order(:updated_at).reverse_order
+    #TODO: When chaining methods try it like this:
+    @projects = Project
+      .where({manager_id: current_manager})
+      .order(:updated_at)
+      .reverse_order
   end
 
 

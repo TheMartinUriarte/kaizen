@@ -26,6 +26,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  #TODO: This doesn't work. remove from production until it works.
   def create_with_github
     manager = Manager.find_or_create_by(:provider => auth_hash[:provider], :uid => auth_hash[:uid]) do |user|
        user.name =  auth_hash[:info].name
@@ -103,6 +104,7 @@ class SessionsController < ApplicationController
 
   end
 
+  #TODO: When I try to click on generate workflow for a project your routes state that I go here. Why? It also crashes the server fatally. Why?
   def new_email
     p "notify developer is clicked"
     @project = Project.find_by_title(params[:title])

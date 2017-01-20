@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   before_action :authorize
 
+  #TODO: This is a nice touch of only showing a single manager's Projects
   def index
     @projects = Project.where({manager_id: session[:manager_id]}).order(:updated_at).reverse_order
   end
@@ -14,17 +15,19 @@ class ProjectsController < ApplicationController
     new_project = Project.new(project_params)
     if new_project.save
 
+      #TODO: What is this? add comments! Should this token be hidden?
       @cronofy = Cronofy::Client.new(access_token: 'xoTQMfDkfJM19CBoBXIMFh4DKvUnDJlR')
-
-
       @calendars = @cronofy.list_calendars
 
       read_calendar
 
       if params[:save]
         new_calendar(new_project)
+        #TODO: p in production is a no-no. remove
         p "i'm clicked"
       else
+        #TODO: include an error flash message.
+        #TODO: p in production is a no-no. remove
         p "you suck"
       end
 
@@ -76,6 +79,7 @@ class ProjectsController < ApplicationController
 
   def new_calendar(project)
     @new_event = {
+      #TODO: This is a terrible event_id
       event_id: "unique-event-id",
       summary: project.title,
       description: project.description,

@@ -1,6 +1,7 @@
 <div class="register-photo">
     <div class="form-container">
         <div class="image-holder">
+          <!-- TODO: You're a grown up website, host your own images. -->
           <img class="img-responsive signup-img" src="http://i.imgur.com/pvslEVd.png">
         </div>
         <%= form_for :manager, url: '/managers', class: 'form-control' do |f| %>
@@ -24,6 +25,7 @@
               <%= f.password_field :password_confirmation, placeholder: 'Confirm Password', class: 'form-control' %>
             </div>
             <div class="form-group">
+              <!-- TODO: You're a grown up website, host your own images. -->
               <%= f.hidden_field :image, :value => "http://i.imgur.com/en3Tpt6.png" %>
             </div>
             <div class="form-group">
@@ -33,6 +35,7 @@
             <hr>
             <center><a href="auth/github"><i class="fa fa-github signup-github"></i></a></center>
             <p><center>Sign up with your GitHub account!</center></p>
+            <!-- TODO: Remove this unused code. -->
             <!-- <button class="btn btn-primary btn-block" type="submit">GitHub</button> -->
         </form>
         <% end %>

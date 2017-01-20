@@ -52,11 +52,12 @@ class DevelopersController < ApplicationController
 
       developer_skill = Developerskill.where({developer_id: updated_dev.id, skill_id: id})
       developer_skill.update_all(level: params[:level][index])
-    end  
+    end
 
     if updated_dev.update(dev_params)
       redirect_to '/team'
     else
+      #TODO: Consider adding a flash message along with this redirect to help the user. 
       redirect_to "/team/#{dev.name}/edit"
     end
   end
