@@ -11,6 +11,7 @@ class SkillsController < ApplicationController
   end
 
   def create
+    #TODO: Weird convention, please match with the rest.
    Skill.create(
     skill_params
    )
@@ -30,6 +31,7 @@ class SkillsController < ApplicationController
     if updated_skill.update(skill_params)
       redirect_to '/skills'
     else
+      #TODO: include a flash error message
       redirect_to "/skills/#{skill}/edit"
     end
   end

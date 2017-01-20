@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 
   before_action :authorize
 
+  #TODO: I'm sad I never got to see this controller in action.
   def create
     @project = Project.find(task_params[:project_id])
     new_task = @project.tasks.create(task_params)
@@ -36,7 +37,7 @@ class TasksController < ApplicationController
       params[:time].each do |time|
         if time != ""
           skill = params[:skills].shift
-          
+
           updated_task.skills << Skill.find(skill)
           updated_skill = Taskskill.where({task_id: updated_task.id.to_i, skill_id: skill})
           updated_skill.update_all(hours_needed: time)
@@ -67,6 +68,7 @@ class TasksController < ApplicationController
 
   private
 
+  #TODO: These two extractions are a little weird. Are they necessary?
   def project
     params[:title]
   end

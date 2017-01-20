@@ -7,6 +7,7 @@ class Task < ApplicationRecord
   belongs_to :developer, optional: true
 
   validates :title, presence: true
+  #TODO: remove unused code from production versions
   # validates :status, presence: true
   validate :deadline_cannot_be_earlier_than_today
 

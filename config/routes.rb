@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  #TODO: Consider adding a catchall route that will redirect a user to login if the route doesn't match any below.
   root 'sessions#index'
 
   get '/login' => 'sessions#new'
@@ -27,8 +28,10 @@ Rails.application.routes.draw do
   put '/projects/:title' => 'projects#update'
   delete '/projects/:title' => 'projects#destroy'
 
+  # TODO: remove commented out and unused code.
   # get '/tasks/new' => 'tasks#new', as: 'new_task'
   post '/tasks' => 'tasks#create'
+  #TODO: There is no show method in yoru controller. why is this here?
   get '/tasks/:title' => 'tasks#show', as: 'task'
   get '/tasks/:title/edit' => 'tasks#edit', as: 'edit_task'
   put '/tasks/:title' => 'tasks#update'
@@ -50,6 +53,7 @@ Rails.application.routes.draw do
   put '/skills/:name' => 'skills#update'
   delete '/skills/:name' => 'skills#destroy'
 
+  # TODO: Does this work?
   get 'auth/github', :as => 'github_auth'
   match 'auth/:provider/callback' => "sessions#create_with_github", :via => [:get, :post]
 end

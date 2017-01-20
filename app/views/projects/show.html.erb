@@ -11,15 +11,19 @@
 <div class="page-content-wrapper">
   <div class="container-fluid dashboard-order">
     <div class="row">
+      <!-- TODO: CHANGE the canned html PLEASE! -->
       <div class="col-md-7 col-md-offset-1"><h1>Projects#show</h1>
         <p>Find me in app/views/projects/show.html.erb</p>
-
+        <!-- TODO: Your generate workflow button takes me to your app crashing.  -->
         <%= link_to("Edit", "/projects/#{@project.title}/edit", class: 'btn btn-info') %> <%= link_to("Delete", "/projects/#{@project.title}", :method => :delete, class: 'btn btn-danger', data: {confirm: "Are you sure you want to delete this project?"}) %> <%= link_to("Generate Workflow", "/workflow/#{@project.title}", class: 'btn btn-success') %>
         <p>
           <strong>Project Title:</strong> <%= @project.title %><br>
           <strong>Project Deadline:</strong> <%= @project.deadline %><br>
           <strong>Project Description:</strong> <%= @project.description %><br>
-          <strong>Project Tasks:</strong> <span class="task">Add Task</span>
+
+          <!-- TODO: This looks like an Add Task link. It SHOULD be a link. Why is this not a link? -->
+           <strong>Project Tasks:</strong> <span class="task">Add Task</span>
+
           <div class="new-task">
             <%= form_for :task, url: '/tasks' do |f| %>
               <%= f.hidden_field :project_id, :value => @project.id %>
