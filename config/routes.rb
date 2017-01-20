@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   put '/projects/:title' => 'projects#update'
   delete '/projects/:title' => 'projects#destroy'
 
+  # TODO: remove commented out and unused code.
   # get '/tasks/new' => 'tasks#new', as: 'new_task'
   post '/tasks' => 'tasks#create'
   get '/tasks/:title' => 'tasks#show', as: 'task'
